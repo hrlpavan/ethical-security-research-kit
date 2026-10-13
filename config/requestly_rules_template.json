@@ -1,0 +1,26 @@
+{
+  "rules": [
+    {
+      "id": "safe-harbor-header-template",
+      "name": "Platform Safe Harbor Identification Header",
+      "description": "Automatically attaches mandatory security researcher identification to all outgoing HTTP requests.",
+      "status": "Active",
+      "ruleType": "ModifyHeaders",
+      "pairs": [
+        {
+          "type": "Request",
+          "action": "Add",
+          "header": "X-Bug-Bounty",
+          "value": "<PLATFORM>-<YOUR_USERNAME>"
+        }
+      ],
+      "urlCondition": {
+        "source": {
+          "key": "Url",
+          "operator": "Contains",
+          "value": ""
+        }
+      }
+    }
+  ]
+}
